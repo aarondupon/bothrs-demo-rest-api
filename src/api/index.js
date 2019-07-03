@@ -28,6 +28,7 @@ const API = {
 }
 
 
-// Pauze
+
+
 
 export default API;
