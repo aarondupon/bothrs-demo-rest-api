@@ -3,7 +3,7 @@ import List from "./components/List";
 import Card from "./components/Card";
 import Hero from "./components/Hero";
 import { ThemeProvider } from "styled-components";
-
+import Airtable from './api';
 import "./App.css";
 
 const theme = {
@@ -23,6 +23,8 @@ const createList = () => (
 );
 
 const App = () => {
+
+  console.log('Airtable',Airtable.get())
   return (
     <ThemeProvider theme={theme}>
       <div style={{width:860+40, padding:'20px 20px'}} className="App">
