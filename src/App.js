@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import List from "./components/List";
+import Card from "./components/Card";
+import Hero from "./components/Hero";
+import { ThemeProvider } from "styled-components";
 
-function App() {
+import "./App.css";
+
+const theme = {
+  /* Blue */
+  color: "#0C2358",
+  secondColor: "#5BC9BF",
+  headerTextColor: "#ffffff",
+  headerButtonColor: "#9013FE"
+};
+
+const createList = () => (
+  <List>
+    {[1, 2, 3].map(x => (
+      <Card key={x} />
+    ))}
+  </List>
+);
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div style={{width:860+40, padding:'20px 20px'}} className="App">
+        <Hero />
+        {createList()}
+        {createList()}
+      </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
