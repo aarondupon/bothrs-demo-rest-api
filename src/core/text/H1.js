@@ -8,7 +8,7 @@ const H1 = styled.h1 `
 font-family: Poppins;
 font-style: normal;
 font-weight: normal;
-font-size: 40px;
+font-size: 2.6em;
 line-height: 57px;
 
 color:${props => props.theme.headerTextColor};

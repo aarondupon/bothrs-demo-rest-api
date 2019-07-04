@@ -19,6 +19,17 @@ const Container = styled.div`
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25); // not okay :(
 `;
 
+const ArrowLeftBtn = styled(ArrowLeftSVG)`
+  cursor: pointer;
+  left:70px; 
+  top:50%;
+`;
+
+const ArrowRightBtn = styled(ArrowRightSVG)`
+cursor: pointer;
+  right:30px; 
+  top:50%;
+`;
 const Box = styled.div`
   position: absolute;
   top: ${50}px;
@@ -72,8 +83,8 @@ const Hero = ({ children, source, title, text, label }) => {
           />
         ))}
       </Box>
-      <ArrowLeftSVG y={"50%"} x={40} onClick={goToPrevPage} />
-      <ArrowRightSVG style={{ top: "50%", right: 50 }} onClick={goToNextPage} />
+      <ArrowLeftBtn onClick={goToPrevPage} />
+      <ArrowRightBtn onClick={goToNextPage} />
       <HeroPager count={pages.length} selectedIndex={currentPage} onSelectPage={setPage} />
     </Container>
   );

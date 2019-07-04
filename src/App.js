@@ -29,19 +29,21 @@ const createList = (title,data) => (
 );
 
 const AppContainer = styled.div`
-  width: cacl(100% - 40px);
+  width: 90%;
   padding:20px 20px;
   max-width:1160px;
+  
   position:absolute;
-  left:50%;
+  display:inline-block;
+  margin-left:50%;
   transform:translate(-50%,0);
 `
+
 const App = () => {
   const [listData] = useAirtable();
-  // console.log('listData',listData)
   return (
     <ThemeProvider theme={theme}>
-      <AppContainer style={{}} >
+      <AppContainer  >
         <Hero />
         {Object.keys(listData).map(key=>createList(key,listData[key]))}
       </AppContainer>

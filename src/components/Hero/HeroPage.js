@@ -12,6 +12,15 @@ const VBox = styled.div`
 
 const StyledH1 = styled(H1)`
   width: 100%;
+  font-size: 2.6em;
+  @media (max-width: 768px) {
+        font-size: 2em;
+        line-height:1.3em;
+  }
+  @media (max-width: 540px) {
+        font-size: 1.8em;
+        line-height:1.1em;
+  }
 `;
 
 const HeroPage = ({ title, label, width, height, x }) => (
