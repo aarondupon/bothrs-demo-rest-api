@@ -10,7 +10,7 @@ import Text from "../../core/text/Text";
 const Container = styled.div`
   position: relative;
   width: ${props => props.width || "357px"};
-  max-height:${props => props.height || "340px"};
+  /* max-height:${props => props.height || "340px"}; */
   height: ${props => props.height || 'auto'};
   background-color: "#f0f0f0";
   /* border: solid 1px green; */
@@ -42,7 +42,7 @@ const Card = ({ children, source, title, text }) => {
       <H4>
           {title || 'Energiezuinige koelkast'}
       </H4>
-      <Text>
+      <Text lines={2} ellipsis={<span>...</span>}>
           { text || 'The onChange event behaves as you would expect .'}
       </Text>
     </Container>

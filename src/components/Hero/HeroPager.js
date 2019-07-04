@@ -13,6 +13,7 @@ const Container = styled.div`
   position: absolute;
   z-index: 9999999;
   color: #ffffff;
+
 `;
 
 const Dot = styled.div`
@@ -36,23 +37,21 @@ const Dot = styled.div`
   text-align: center;
   background-color: #ffffff;
   cursor:pointer;
-  &.hover{
+  &:hover{
       background-color:#000000;
   }
+  opacity:${props=>props.selected ? 1: .75};
 `;
 
-const Pager = ({ color, pages = [1, 2, 3], onSelectPage }) => {
-  const selectPage = idx => {
-    onSelectPage && onSelectPage(idx);
-  };
-
+const HeroPager = ({ color, count=0, selectedIndex, onSelectPage = ()=>{} }) => {
   return(<Container color={color}>
-    {pages.map( (x,idx) => 
+    {Array(count).fill(0).map( (x,idx) => 
       <Dot 
         key={idx}
-        onClick={(e) => selectPage(idx)} 
+        selected={idx==selectedIndex}
+        onClick={(e) => onSelectPage(idx)} 
         />
     )}
   </Container>);
 };
-export default Pager;
+export default HeroPager;

@@ -3,8 +3,8 @@ import List from "./components/List";
 import Card from "./components/Card";
 import Hero from "./components/Hero";
 import { ThemeProvider } from "styled-components";
-import Airtable from './api';
 import "./App.css";
+import useAirtable from "./api/hooks/useAirtable";
 
 const theme = {
   /* Blue */
@@ -14,23 +14,27 @@ const theme = {
   headerButtonColor: "#9013FE"
 };
 
-const createList = () => (
-  <List>
-    {[1, 2, 3].map(x => (
-      <Card key={x} />
+const createList = (title,data) => (
+  <List key={title} title={title}>
+    {data.map((data,idx) => (
+      <Card 
+        key={idx} 
+        source={data.Afbeelding[0].url}  
+        title={data.Naam}
+        text={data.Beschrijving}
+        />
     ))}
   </List>
 );
 
 const App = () => {
-
-  console.log('Airtable',Airtable.get())
+  const [listData] = useAirtable();
+  console.log('listData',listData)
   return (
     <ThemeProvider theme={theme}>
-      <div style={{width:860+40, padding:'20px 20px'}} className="App">
+      <div style={{width:'cacl(100% - 40px)', padding:'20px 20px'}} className="App">
         <Hero />
-        {createList()}
-        {createList()}
+        {Object.keys(listData).map(key=>createList(key,listData[key]))}
       </div>
     </ThemeProvider>
   );

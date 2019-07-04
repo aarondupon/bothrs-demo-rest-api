@@ -6,7 +6,9 @@ const RATIO = 0.6022408964;
 const Image  = styled.div`
     width:${props=>props.width}px;
     height:${props=>props.width*RATIO}px;
-    background-image:${props=>props.source};
+    background-image:url(${props=>props.source});
+    background-size:cover;
+    background-position: center center;
     background-color: lightgray;
     
 `

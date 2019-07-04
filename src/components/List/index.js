@@ -12,13 +12,13 @@ const Flex = styled.div `
 `
 
 const ListHeader = styled.div `
-    padding: 0px 30px;
+    padding: 0px 0px;
 `
-const List = ({children, source, listTitle}) => {
+const List = ({children, source, title}) => {
     return (
         <div>
             <ListHeader>
-            <H3  >{listTitle || 'Huishoudtoestellen'}</H3>
+            <H3  >{title || 'Huishoudtoestellen'}</H3>
             </ListHeader>
             <Flex>
                 {children}
