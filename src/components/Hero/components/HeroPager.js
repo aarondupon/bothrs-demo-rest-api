@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 /* Label or CTA Light */
 const Container = styled.div`
   /* width:; */
@@ -43,8 +44,8 @@ const Dot = styled.div`
   opacity:${props=>props.selected ? 1: .75};
 `;
 
-const HeroPager = ({ color, count=0, selectedIndex, onSelectPage = ()=>{} }) => {
-  return(<Container color={color}>
+const HeroPager = ({ events,color, count=0, selectedIndex, onSelectPage = ()=>{}, ...props }) => {
+  return(<Container  {...props} color={color}>
     {Array(count).fill(0).map( (x,idx) => 
       <Dot 
         key={idx}

@@ -26,8 +26,8 @@ color:#ffffff;
 `;
 
 
-const Button =  ({color,label}) =>
-        <Container color={color} >
+const Button =  ({color,label, ...props}) =>
+        <Container color={color} {...props} >
             {label}
         </Container> 
 export default Button;

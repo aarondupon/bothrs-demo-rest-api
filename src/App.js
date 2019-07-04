@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import List from "./components/List";
 import Card from "./components/Card";
-import Hero from "./components/Hero";
+import Hero from "./components/Hero/Hero";
 import { ThemeProvider } from "styled-components";
-import "./App.css";
 import useAirtable from "./api/hooks/useAirtable";
 import styled from 'styled-components';
 
