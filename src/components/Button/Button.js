@@ -20,7 +20,7 @@ line-height: 24px;
 /* identical to box height, or 133% */
 text-align: center;
 background-color:${props=>props.color || props.theme.headerButtonColor};
-/* border:1px solid yellow; */
+cursor: pointer;
 color:#ffffff;
 
 `;
