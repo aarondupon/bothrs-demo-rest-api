@@ -19,8 +19,8 @@ const Container = styled.div`
     margin-left: 0px;
   }
   margin-top: 30px;
-  padding-bottom:10px;
-  border-radius: ${40/2}px; // opmaak niet in retina resolution ??
+  padding-bottom:20px;
+  border-radius: ${20}px;
   overflow:hidden;
   /* display:flex; */
   flex-direction:column;
@@ -42,7 +42,8 @@ const Card = ({ children, source, title, text }) => {
       <H4>
           {title || 'Energiezuinige koelkast'}
       </H4>
-      <Text lines={2} ellipsis={<span>...</span>}>
+      <div style={{height:10}}/>
+      <Text  lines={2} ellipsis={<span>...</span>}>
           { text || 'The onChange event behaves as you would expect .'}
       </Text>
     </Container>

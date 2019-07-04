@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import { ThemeProvider } from "styled-components";
 import "./App.css";
 import useAirtable from "./api/hooks/useAirtable";
+import styled from 'styled-components';
 
 const theme = {
   /* Blue */
@@ -27,15 +28,23 @@ const createList = (title,data) => (
   </List>
 );
 
+const AppContainer = styled.div`
+  width: cacl(100% - 40px);
+  padding:20px 20px;
+  max-width:1160px;
+  position:absolute;
+  left:50%;
+  transform:translate(-50%,0);
+`
 const App = () => {
   const [listData] = useAirtable();
-  console.log('listData',listData)
+  // console.log('listData',listData)
   return (
     <ThemeProvider theme={theme}>
-      <div style={{width:'cacl(100% - 40px)', padding:'20px 20px'}} className="App">
+      <AppContainer style={{}} >
         <Hero />
         {Object.keys(listData).map(key=>createList(key,listData[key]))}
-      </div>
+      </AppContainer>
     </ThemeProvider>
   );
 };

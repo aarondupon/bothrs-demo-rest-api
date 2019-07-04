@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import H1 from "../../core/text/H1";
-import Button from "../Button";
+import H1 from '../../core/text/H1';
+import Button from '../Button/Button';
 
 const VBox = styled.div`
   position:absolute;
