@@ -7,7 +7,6 @@ import useAirtable from "./api/hooks/useAirtable";
 import styled from 'styled-components';
 
 const theme = {
-  /* Blue */
   color: "#0C2358",
   secondColor: "#5BC9BF",
   headerTextColor: "#ffffff",
@@ -22,6 +21,7 @@ const createList = (title,data) => (
         source={data.Afbeelding[0].url}  
         title={data.Naam}
         text={data.Beschrijving}
+        coins={data.Coins}
         />
     ))}
   </List>

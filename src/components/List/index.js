@@ -11,6 +11,9 @@ const Flex = styled.div `
     /* height:${props => props.height || '403px'}; */
     /* border:solid 1px red; */
     align-items: flex-start;
+    @media (max-width: 768px) {
+        flex-direction:column;
+    }
 `
 
 const ListHeader = styled.div `
@@ -34,7 +37,6 @@ const List = ({children, source='', title=''}) => {
             <StyledH3>{title}</StyledH3>
             <RightBox>
             <LinkBtn>Meer {title.toLowerCase()}</LinkBtn>
-
             </RightBox>
             </ListHeader>
             <Flex>

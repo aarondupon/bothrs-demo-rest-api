@@ -9,7 +9,8 @@ import Text from "../../core/text/Text";
 
 const Container = styled.div`
   position: relative;
-  width: ${props => props.width || "357px"};
+  /* width: ${props => props.width || "357px"}; */
+
   /* max-height:${props => props.height || "340px"}; */
   height: ${props => props.height || 'auto'};
   background-color: "#f0f0f0";
@@ -34,25 +35,30 @@ const Container = styled.div`
     box-shadow: 0px 5.0161px 40.0645px rgba(0, 0, 0, 0.05), 0px 0px 35.0645px rgba(91, 201, 191, 0.1);
 
   }
+
+  @media (max-width: 768px) {
+    width:100%;
+    margin-left:0px;
+  }
+
 `;
 
 
 
 
-const Card = ({ children, source, title, text }) => {
+const Card = ({ children, source, title, text ,coins}) => {
   const theme = useContext(ThemeContext);
   return (
     <Container>
-   
       <Image width={357} source={source} />
-      <Chip color={theme.secondColor} label={'1000'} />
+      <Chip color={theme.secondColor} label={coins} />
       <div style={{height:40}}/>
       <H4>
-          {title || 'Energiezuinige koelkast'}
+          {title}
       </H4>
       <div style={{height:10}}/>
       <Text  lines={2} ellipsis={<span>...</span>}>
-          { text || 'The onChange event behaves as you would expect .'}
+          { text }
       </Text>
     </Container>
   );
