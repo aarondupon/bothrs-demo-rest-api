@@ -12,6 +12,7 @@ import pages from "./data.json";
 
 const Container = styled.div`
   position: relative;
+ 
   width: ${props => props.width || "100%"};
   height: ${props => props.height || "436px"};
   margin-bottom: 55px;
@@ -33,13 +34,15 @@ const ArrowRightBtn = styled(ArrowRightSVG)`
   right: 30px;
   top: 50%;
 `;
+
+
 const Box = styled.div`
   position: absolute;
   top: ${50}px;
   right: 12%;
   width: ${props => props.width};
   height: 300px;
-  /* overflow: hidden; */
+  /* border:solid; */
 `;
 
 const Hero = ({ children, source, title, text, label }) => {
@@ -87,10 +90,11 @@ const Hero = ({ children, source, title, text, label }) => {
           <ThunderSVG y={149} />
         </animated.div>
       </div>
-
-      <Box onMouseEnter={stop} onMouseLeave={start} width={"50%"}>
-        <HeroPage page={pages[currentPage]} width={`${100}%`} height={180} />
-      </Box>
+      <div style={{position:'absolute',width:'100%', height:'100%', overflow:'hidden'}}>
+        <Box onMouseEnter={stop} onMouseLeave={start} width={"50%"}>
+          <HeroPage page={pages[currentPage]} width={`${100}%`} height={180} />
+        </Box>
+      </div>
       <ArrowLeftBtn
         onMouseEnter={stop}
         onMouseLeave={start}

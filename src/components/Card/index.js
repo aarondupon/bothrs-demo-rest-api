@@ -9,7 +9,7 @@ import Text from "../../core/text/Text";
 
 const Container = styled.div`
   position: relative;
-  /* width: ${props => props.width || "357px"}; */
+  width: ${props => props.width}px;
 
   /* max-height:${props => props.height || "340px"}; */
   height: ${props => props.height || 'auto'};
@@ -22,7 +22,7 @@ const Container = styled.div`
   margin-top: 30px;
   padding-bottom:20px;
   border-radius: 10.0161px;
-  overflow:hidden;
+  /* overflow:hidden; */
   /* display:flex; */
   flex-direction:column;
   background:#ffffff;
@@ -35,7 +35,8 @@ const Container = styled.div`
     box-shadow: 0px 5.0161px 40.0645px rgba(0, 0, 0, 0.05), 0px 0px 35.0645px rgba(91, 201, 191, 0.1);
 
   }
-
+  width:30%;
+  overflow:hidden;
   @media (max-width: 768px) {
     width:100%;
     margin-left:0px;

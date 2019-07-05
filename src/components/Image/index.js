@@ -5,6 +5,8 @@ import styled from 'styled-components';
 const RATIO = 0.6022408964;
 const Image  = styled.div`
     min-width:100%;
+    /* border-top-right-radius: 10.0161px;
+    border-top-left-radius: 10.0161px; */
     width:${props=>props.width}px;
     height:${props=>props.width*RATIO}px;
     background-image:url(${props=>props.source});

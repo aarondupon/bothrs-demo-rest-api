@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ThunderSVG  = (props) =>
-        <svg style={{position:"absolute",transform:'translate(-50%,-50%)',left:props.x,top:props.y}} width='166' height='399' viewBox='0 0 166 399' fill='none' xmlns='http://www.w3.org/2000/svg'
+        <svg style={{position:"absolute",transform:'translate(-50%,-50%)',left:props.x,top:props.y, ...props.style}} width='166' height='399' viewBox='0 0 166 399' fill='none' xmlns='http://www.w3.org/2000/svg'
         xmlnsXlink='http://www.w3.org/1999/xlink'>
             <rect x='0.725' width='165.275' height='398.267' fill='url(#pattern0)'
             />

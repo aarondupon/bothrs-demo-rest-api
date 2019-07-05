@@ -6,7 +6,8 @@ import Truncate from 'react-truncate';
 
 
 /* Label or CTA Light */
-const TruncateStyled = styled(Truncate)`
+const TruncateStyled = styled.div`
+display:inline-block;
 width:${100}%;
 height:auto;
 font-family: Poppins;
