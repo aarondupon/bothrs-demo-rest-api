@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useTransition, animated, useSpring } from "react-spring";
+import { animated, useSpring } from "react-spring";
 import ThunderSVG from "../../core/symbols/ThunderSVG";
 import ArrowLeftSVG from "../../core/symbols/ArrowLeftSVG";
 import ArrowRightSVG from "../../core/symbols/ArrowRightSVG";
@@ -12,7 +12,6 @@ import pages from "./data.json";
 
 const Container = styled.div`
   position: relative;
- 
   width: ${props => props.width || "100%"};
   height: ${props => props.height || "436px"};
   margin-bottom: 55px;
@@ -20,7 +19,7 @@ const Container = styled.div`
   margin-top: 30px;
   border-radius: ${40 / 2}px;
   padding: 0px 0px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25); // not okay :(
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const ArrowLeftBtn = styled(ArrowLeftSVG)`
@@ -42,27 +41,24 @@ const Box = styled.div`
   right: 12%;
   width: ${props => props.width};
   height: 300px;
-  /* border:solid; */
 `;
+
+const nextPage = (curr,count) =>  (curr + 1) % count;
+const prevPage = (curr,count) =>  (count + curr - 1) % count;
 
 const Hero = ({ children, source, title, text, label }) => {
   const [currentPage, setPage] = useState(0);
   const [stop, start, count] = useTimer(3000);
   const [down, setDown] = useState(false);
-  const transitions = useTransition(pages[currentPage], page => page.id, {
-    from: { opacity: 0, transform: "translate3d(100vw, 0, 0)" },
-    enter: { opacity: 1, transform: "translate3d(0, 0, 0)" },
-    leave: { opacity: 0, transform: "translate3d(-20vw, 0, 0)" }
-  });
+  const maxPage = pages.length;
 
-  const goToNextPage = () => setPage((currentPage + 1) % pages.length);
-  /* const goToNextPage = () => setPage((currentPage + 1)); */
+  const goToNextPage = () => 
+    setPage(nextPage(currentPage,maxPage))
+
   const goToPrevPage = () =>
-    setPage((pages.length + currentPage - 1) % pages.length);
+    setPage(prevPage(currentPage,maxPage)) 
 
-  useEffect(() => {
-    goToNextPage();
-  }, [count]);
+  useEffect(goToNextPage, [count]);
 
   const thunderAnimation = useSpring({
     transform: down ? "translateY(-20px)" : "translateY(0px)"
@@ -71,8 +67,6 @@ const Hero = ({ children, source, title, text, label }) => {
     transform: down ? "translateY(-30px) scale(1.2)" : "translateY(0px) scale(1)",
     opacity: down ?  .5 : 1,
   });
-
-  console.log("down:::", thunderAnimation);
 
   return (
     <Container

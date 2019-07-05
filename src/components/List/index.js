@@ -9,7 +9,6 @@ const Flex = styled.div `
     width:${props => props.width || '100%'};
     margin-bottom:64px;
     /* height:${props => props.height || '403px'}; */
-    /* border:solid 1px red; */
     align-items: flex-start;
     @media (max-width: 768px) {
         flex-direction:column;

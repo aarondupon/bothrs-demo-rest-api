@@ -4,12 +4,10 @@ import styled from "styled-components";
 
 /* Label or CTA Light */
 const Container = styled.div`
-  /* width:; */
   margin-left: 50%;
   transform: translate(-50%, 0);
   display: flex;
   flex-direction: row;
-  /* position:absolute; */
   bottom: 30px;
   position: absolute;
   z-index: 9999999;
@@ -19,11 +17,8 @@ const Container = styled.div`
 
 const Dot = styled.div`
   width: fit-content;
-  /* position:absolute; */
-  /* right:7.28%; */
   transform: translate(0px, -50%);
   z-index: 9999999;
-
   border-radius: 24px;
   height: 14px;
   width: 14px;
